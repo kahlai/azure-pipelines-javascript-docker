@@ -9,8 +9,9 @@ variables:
 
 steps:
 - task: Docker@2
-  displayName: Build an image
+  displayName: Build an image and push
   inputs:
+    containerRegistry: 'Quay'
     repository: $(imageName)
-    command: build
-    Dockerfile: app/Dockerfile
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
