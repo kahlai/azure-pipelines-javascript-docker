@@ -8,15 +8,15 @@ variables:
   imageName: 'kahlai/pipelines-javascript-docker'
 
 steps:
-- task: Docker@2
-  displayName: Build an image and push
-  inputs:
-    containerRegistry: 'Quay'
-    repository: $(imageName)
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
-- checkout: self
-  persistCredentials: true
+# - task: Docker@2
+#   displayName: Build an image and push
+#   inputs:
+#     containerRegistry: 'Quay'
+#     repository: $(imageName)
+#     command: 'buildAndPush'
+#     Dockerfile: '**/Dockerfile'
+# - checkout: self
+#   persistCredentials: true
 - bash: |
     echo 'Hello World'
     echo $(PAT)
