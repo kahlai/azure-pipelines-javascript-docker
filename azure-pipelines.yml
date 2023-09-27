@@ -6,6 +6,7 @@ pool:
 
 variables:
   imageName: 'kahlai/pipelines-javascript-docker'
+  PAT: $(PAT)
 
 steps:
 # - task: Docker@2
