@@ -15,7 +15,15 @@ steps:
     repository: $(imageName)
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
-- script: echo 'Hello World'
+- script: |
+    echo 'Hello World'
+    git config --global user.name "Mona Lisa"
+    git config --global user.email "monalisa@redhat.com"
+    git clone https://github.com/kahlai/azure-pipeline-demo.git
+    touch README.md
+    git add README.md
+    git commit -m "first commit"
+    git push
 - task: GitHubRelease@1
   inputs:
     gitHubConnection: 'Github'
