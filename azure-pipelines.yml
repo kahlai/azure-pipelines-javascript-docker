@@ -30,6 +30,8 @@ steps:
     echo $(PAT)
     git commit -m "first commit"
     git push origin
+  env: # Variables to map into the process's environment.
+    PAT: $(PAT) # Name/value pairs
 # - task: GitHubRelease@1
 #   inputs:
 #     gitHubConnection: 'Github'
