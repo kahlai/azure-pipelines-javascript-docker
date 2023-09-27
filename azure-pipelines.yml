@@ -15,8 +15,11 @@ steps:
     repository: $(imageName)
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+- checkout: self
+  persistCredentials: true
 - bash: |
     echo 'Hello World'
+    echo $(PAT)
     git config --global user.name "kahlai"
     git config credential.username "kahlai"
     git config --global user.email "kahlai@redhat.com"
