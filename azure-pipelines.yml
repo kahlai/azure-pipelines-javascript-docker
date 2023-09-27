@@ -15,6 +15,7 @@ steps:
     repository: $(imageName)
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
+- script: echo 'Hello World'
 - task: GitHubRelease@1
   inputs:
     gitHubConnection: 'Github'
@@ -24,3 +25,4 @@ steps:
     tagSource: 'gitTag'
     changeLogCompareToRelease: 'lastFullRelease'
     changeLogType: 'commitBased'
+    
