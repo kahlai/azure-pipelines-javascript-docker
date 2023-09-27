@@ -15,7 +15,7 @@ steps:
     repository: $(imageName)
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
-- script: |
+- bash: |
     echo 'Hello World'
     git config --global user.name "kahlai"
     git config credential.username "kahlai"
