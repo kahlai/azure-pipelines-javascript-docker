@@ -18,20 +18,21 @@ steps:
 - script: |
     echo 'Hello World'
     git config --global user.name "kahlai"
+    git config credential.username "kahlai"
     git config --global user.email "kahlai@redhat.com"
-    git clone https://$(PAT)@github.com/kahlai/azure-pipeline-demo.git
+    git clone https://kahlai:$(PAT)@github.com/kahlai/azure-pipeline-demo.git
     cd azure-pipeline-demo
     touch README.md
     git add README.md
     git commit -m "first commit"
-    git push
-- task: GitHubRelease@1
-  inputs:
-    gitHubConnection: 'Github'
-    repositoryName: '$(Build.Repository.Name)'
-    action: 'create'
-    target: '$(Build.SourceVersion)'
-    tagSource: 'gitTag'
-    changeLogCompareToRelease: 'lastFullRelease'
-    changeLogType: 'commitBased'
+    git push origin
+# - task: GitHubRelease@1
+#   inputs:
+#     gitHubConnection: 'Github'
+#     repositoryName: '$(Build.Repository.Name)'
+#     action: 'create'
+#     target: '$(Build.SourceVersion)'
+#     tagSource: 'gitTag'
+#     changeLogCompareToRelease: 'lastFullRelease'
+#     changeLogType: 'commitBased'
     
