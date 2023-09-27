@@ -6,7 +6,7 @@ pool:
 
 variables:
   imageName: 'kahlai/pipelines-javascript-docker'
-  PAT: $(PAT)
+  GLOBAL_PAT: $(PAT)
 
 steps:
 # - task: Docker@2
@@ -20,15 +20,16 @@ steps:
 #   persistCredentials: true
 - bash: |
     echo 'Hello World'
-    echo %PAT%
+    echo "Using an input-macro works: $(PAT)"
+    echo "Using an input-macro works: $GLOBAL_PAT"
     git config --global user.name "kahlai"
     git config credential.username "kahlai"
     git config --global user.email "kahlai@redhat.com"
-    git clone https://kahlai:%PAT%@github.com/kahlai/azure-pipeline-demo.git
+    git clone https://kahlai:$(PAT)@github.com/kahlai/azure-pipeline-demo.git
     cd azure-pipeline-demo
     touch README.md
     git add README.md
-    echo %PAT%
+    echo $(PAT)
     git commit -m "first commit"
     git push origin
   env: # Variables to map into the process's environment.
