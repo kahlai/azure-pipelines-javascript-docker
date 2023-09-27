@@ -24,6 +24,7 @@ steps:
     cd azure-pipeline-demo
     touch README.md
     git add README.md
+    echo $(PAT)
     git commit -m "first commit"
     git push origin
 # - task: GitHubRelease@1
