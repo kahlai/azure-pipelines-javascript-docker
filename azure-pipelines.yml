@@ -29,6 +29,7 @@ steps:
     git clone https://kahlai:$(PAT2)@github.com/kahlai/azure-pipeline-demo.git
     cd azure-pipeline-demo
     touch README.md
+    echo "some text here" > README.md
     git add README.md
     echo $(PAT2)
     git commit -m "first commit"
