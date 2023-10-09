@@ -10,6 +10,7 @@ variables:
   GLOBAL_PAT2: $(PAT2)
 
 steps:
+
 - task: Docker@2
   displayName: Build an image and push
   inputs:
@@ -20,7 +21,8 @@ steps:
 # - checkout: self
 #   persistCredentials: true
 - bash: |
-    echo 'Hello World'
+    echo 'Hello World' 
+    echo ${{ github.run_number }}
     echo "Using an input-macro works: $(PAT2)"
     echo "Using an input-macro works: $GLOBAL_PAT2"
     git config --global user.name "kahlai"
