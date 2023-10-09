@@ -22,7 +22,7 @@ steps:
 #   persistCredentials: true
 - bash: |
     echo 'Hello World' 
-    echo ${{ github.run_number }}
+    echo $(github.run_number)
     echo "Using an input-macro works: $(PAT2)"
     echo "Using an input-macro works: $GLOBAL_PAT2"
     git config --global user.name "kahlai"
