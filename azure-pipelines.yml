@@ -23,6 +23,7 @@ steps:
 - bash: |
     echo 'Hello World' 
     echo $(Build.SourceVersionMessage)
+    echo $(Build.SourceVersion)
     echo "Using an input-macro works: $(PAT2)"
     echo "Using an input-macro works: $GLOBAL_PAT2"
     git config --global user.name "kahlai"
